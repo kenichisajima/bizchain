@@ -1,7 +1,11 @@
-<div class="center jumbotron">
-  <div class="text-center">
-    <h1>BizChain</h1>
+<% if logged_in? %>
+  <p>ログイン完了ユーザ: <%= current_user.name %></p>
+<% else %>
+  <div class="center jumbotron">
+    <div class="text-center">
+      <h1>BizChain</h1>
     <h2>異業種間交流会管理アプリ</h2>
     <%= link_to '登録はこちら', signup_path, class: 'btn btn-lg btn-primary' %>
+    </div>
   </div>
-</div>
+<% end %>
