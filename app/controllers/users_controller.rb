@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
-  before_action :require_user_logged_in, only: [:index, :show, :edit, :update]
+  before_action :require_user_logged_in, only: [:index, :show, :edit, :update, :meetings]
   
   def index
+    @users = User.order(id: :desc).page(params[:page]).per(25)
   end
 
   def show
@@ -25,14 +26,29 @@ class UsersController < ApplicationController
   end
 
   def edit
+    @user = User.find(params[:id])
   end
 
   def update
+    @user = User.find(params[:id])
+    
+    if @user.update(user_params)
+      flash[:success] = '正常に更新されました'
+      redirect_to @user
+    else
+      flash.now[:danger] = '更新されませんでした'
+      render :edit
+    end
+  end
+  
+  def meetings
+    @user = User.find(params[:id])
+    @meetings = @user.meetings.order(id: :desc).page(params[:page])
   end
   
   private
   
   def user_params
-    params.require(:user).permit(:name, :email, :password, :password_confirmation)
+    params.require(:user).permit(:name, :email, :password, :password_confirmation, :profile)
   end
 end

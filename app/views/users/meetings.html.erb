@@ -6,13 +6,12 @@
       <li class="nav-item"><a href="#" class="nav-link">参加交流会</a></li>
     </ul>
     <div>
-      <p>名前: <%= @user.name %> </p>
-      <p>プロフィール: <%= @user.profile %> </p>
-      <p>
-        <% if current_user == @user %>
-          <%= link_to 'プロフィールを編集する', edit_user_path, class: 'btn btn-lg btn-primary' %>
-        <% end %>
-      </p>
+      <% if current_user == @user %>
+          <%= link_to '交流会登録', new_meeting_path, class: 'btn btn-lg btn-primary btn-block' %>
+      <% end %>
+    </div>
+    <div>
+      <%= render 'meetings/meetings', meetings: @meetings %>
     </div>
   </div>
 </div>

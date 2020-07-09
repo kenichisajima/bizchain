@@ -1,5 +1,10 @@
 <% if logged_in? %>
-  <p>ログイン完了ユーザ: <%= current_user.name %></p>
+  <div class="row">
+    <h1>交流会一覧</h1>
+    <div class="col-sm-12">
+      <%= render 'meetings/meetings', meetings: @meetings %>
+    </div>
+  </div>
 <% else %>
   <div class="center jumbotron">
     <div class="text-center">

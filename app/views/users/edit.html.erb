@@ -1,2 +1,29 @@
-<h1>Users#edit</h1>
-<p>Find me in app/views/users/edit.html.erb</p>
+<div class="text-center">
+  <h1>ユーザ編集</h1>
+</div>
+
+<div class="row">
+  <div class="col-sm-6 offset-sm-3">
+
+    <%= form_with(model: @user, local: true) do |f| %>
+      <%= render 'layouts/error_messages', model: f.object %>
+      
+      <div class="form-group">
+        <%= f.label :name, '名前' %>
+        <%= f.text_field :name, class: 'form-control' %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :email, 'E-mail' %>
+        <%= f.email_field :email, class: 'form-control' %>
+      </div>
+      
+      <div class="form-group">
+        <%= f.label :profile, 'プロフィール' %>
+        <%= f.text_field :profile, class: 'form-control' %>
+      </div>
+
+      <%= f.submit '編集完了', class: 'btn btn-primary btn-block' %>
+    <% end %>
+  </div>
+</div>
