@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :require_user_logged_in, only: [:index, :show, :edit, :update, :meetings]
+  before_action :require_user_logged_in, only: [:index, :show, :edit, :update, :meetings, :participating_meetings]
   
   def index
     @users = User.order(id: :desc).page(params[:page]).per(25)
@@ -45,6 +45,12 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @meetings = @user.meetings.order(id: :desc).page(params[:page])
   end
+  
+  def participating_meetings
+    @user = User.find(params[:id])
+    @participating_meetings = @user.participating_meetings.page(params[:page])
+  end
+    
   
   private
   

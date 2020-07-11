@@ -6,12 +6,7 @@
       <li class="nav-item"><a href="<%= participating_meetings_user_path(@user) %>" class="nav-link">参加交流会</a></li>
     </ul>
     <div>
-      <% if current_user == @user %>
-          <%= link_to '交流会登録', new_meeting_path, class: 'btn btn-lg btn-primary btn-block' %>
-      <% end %>
-    </div>
-    <div>
-      <%= render 'meetings/meetings', meetings: @meetings %>
+      <%= render 'meetings/meetings', meetings: @participating_meetings %>
     </div>
   </div>
 </div>

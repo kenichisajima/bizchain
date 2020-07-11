@@ -8,6 +8,13 @@
       <p>開始日時: <%= @meeting.start_from %> </p>
       <p>詳細: <%= @meeting.content %> </p>
     </div>
-    <%= link_to '一覧に戻る', root_path %>
+    <div>
+      <%= link_to '一覧に戻る', root_path %>
+    </div>
+    <div>
+      <% unless current_user == @meeting.user %>
+        <%= render 'participations/hope_button', meeting: @meeting %>
+      <% end %>
+    </div>
   </div>
 </div>

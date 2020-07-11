@@ -9,8 +9,10 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :show, :new, :create, :edit, :update] do
     member do
       get :meetings
+      get :participating_meetings
     end
   end
   
   resources :meetings, only: [:show, :new, :create, :destroy, :edit, :update]
+  resources :participations, only: [:create, :destroy]
 end
