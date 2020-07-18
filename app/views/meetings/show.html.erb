@@ -6,7 +6,7 @@
       <p>交流会名: <%= @meeting.name %> </p>
       <p>場所: <%= @meeting.place %> </p>
       <p>開始日時: <%= @meeting.start_from %> </p>
-      <p>詳細: <%= @meeting.content %> </p>
+      <p>詳細: <%= safe_join(@meeting.content.split("\n"),tag(:br)) %> </p>
     </div>
     <div>
       <%= link_to '一覧に戻る', root_path %>
