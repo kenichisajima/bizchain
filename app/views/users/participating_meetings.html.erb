@@ -5,6 +5,7 @@
       <li class="nav-item"><a href="<%= meetings_user_path(@user) %>" class="nav-link">開催交流会</a></li>
       <li class="nav-item"><a href="<%= participating_meetings_user_path(@user) %>" class="nav-link">参加交流会</a></li>
     </ul>
+      <h2><%= @user.name %> さんが参加希望を出している交流会一覧</h2>
     <div>
       <%= render 'meetings/meetings', meetings: @participating_meetings %>
     </div>

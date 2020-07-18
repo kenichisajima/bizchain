@@ -43,6 +43,6 @@ ActiveRecord::Schema.define(version: 2020_07_09_120947) do
   end
 
   add_foreign_key "meetings", "users"
-  add_foreign_key "participations", "meetings"
-  add_foreign_key "participations", "users"
+  add_foreign_key "participations", "meetings", on_delete: :cascade
+  add_foreign_key "participations", "users", on_delete: :cascade
 end

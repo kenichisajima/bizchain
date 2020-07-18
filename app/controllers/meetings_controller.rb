@@ -25,7 +25,7 @@ class MeetingsController < ApplicationController
 
   def destroy
     @meeting.destroy
-    flash[:success] = 'メッセージを削除しました。'
+    flash[:success] = '交流会を削除しました。'
     redirect_back(fallback_location: root_path)
   end
 
