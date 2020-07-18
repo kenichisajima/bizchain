@@ -48,7 +48,9 @@ test:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
 production:
-  <<: *default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
   database: bizchain_production
   username: bizchain
   password: <%= ENV['BIZCHAIN_DATABASE_PASSWORD'] %>
